@@ -1,0 +1,168 @@
+/* Main variables, layout, responsive rules for Kangoo */
+:root {
+  --color-primary: #42a5f5;
+  --color-accent: #ffd600;
+  --color-bg: #ffffff;
+  --color-text: #121212;
+  --color-success: #00c853;
+  --color-fail: #d32f2f;
+
+  --button-size: 5rem;
+  --border-radius: 1.5rem;
+  --font-big: 2.2rem;
+  --font-med: 1.2rem;
+  --font-small: 0.9rem;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  max-width: 450px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+#app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* ...existing code... */
+.landing-screen, .dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.landing-illustration img {
+  width: 180px;
+  max-width: 80vw;
+  margin: 2.5rem auto 1.5rem;
+  display: block;
+}
+
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1.2rem;
+  margin: 0 0 2rem 0;
+  width: 100%;
+}
+
+.scenario-card {
+  background: var(--color-accent);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 10px rgba(255, 214, 0, 0.12);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-med);
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: transform 0.12s;
+  cursor: pointer;
+  padding: 1rem 0.4rem;
+  touch-action: manipulation;
+}
+.scenario-card:active, .scenario-card:focus {
+  transform: scale(1.06) rotate(-2deg);
+  background: #fffde7;
+  outline: 2px solid var(--color-primary);
+}
+.scenario-icon {
+  font-size: 2.4rem;
+  margin-bottom: 0.6rem;
+}
+.scenario-title {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.status-bar {
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  background: rgba(66, 165, 245, 0.07);
+  padding: 1.2rem 0.6rem 0.8rem;
+  border-radius: var(--border-radius);
+}
+
+.character-drawing img {
+  width: 62px;
+  height: auto;
+  border-radius: 48%;
+  border: 2px solid var(--color-primary);
+  background: #fff;
+}
+
+.welcome-msg {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in 0.5s forwards;
+}
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+
+/* ...existing responsive rules... */
+
+@media (max-width: 600px) {
+  #app {
+    min-height: 100vh;
+    padding: 0.5rem;
+  }
+  :root {
+    --button-size: 3.5rem;
+    --font-big: 1.3rem;
+  }
+}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.landing-illustration img {
+  width: 180px;
+  max-width: 80vw;
+  margin: 2.5rem auto 1.5rem;
+  display: block;
+}
+
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1.2rem;
+  margin: 0 0 2rem 0;
+  width: 100%;
+}
+
