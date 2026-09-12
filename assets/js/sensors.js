@@ -31,7 +31,6 @@ export function initSensors(expectedStepId, onMovementDetected) {
   }
 }
 
-// Funkcja pomocnicza wypisująca żywe dane na dolny panel debugowania
 function updateSensorDebug(acc) {
   const consoleEl = document.getElementById('error-console');
   const contentEl = document.getElementById('error-logs-content');
@@ -41,7 +40,7 @@ function updateSensorDebug(acc) {
     if (!liveLog) {
       liveLog = document.createElement('div');
       liveLog.id = 'sensor-live-data';
-      liveLog.style.color = '#ffeb3b'; // Żółty tekst dla żywych danych
+      liveLog.style.color = '#ffeb3b';
       contentEl.prepend(liveLog);
     }
     const x = acc.x ? acc.x.toFixed(1) : '0';
@@ -56,12 +55,8 @@ function startListening(expectedStepId, callback) {
     const acc = event.accelerationIncludingGravity || event.acceleration;
     const rot = event.rotationRate;
 
-    if (!acc) {
-      if (window.showAppError) window.showAppError("Brak danych akcelerometru (acc to null).");
-      return;
-    }
+    if (!acc) return;
 
-    // Wyświetlamy ciągłe odczyty na dole ekranu, żebyś widział czy telefon reaguje
     updateSensorDebug(acc);
 
     const now = Date.now();
@@ -90,7 +85,7 @@ export function stopSensors() {
 function analyzeMovement(acc, rot, stepId) {
   const now = Date.now();
 
-  if (stepId === 'swings-jump' || stepId === 'cave-approach') {
+  if (stepId === 'swings-jump' || stepId === 'cave-approach' || stepId === 'deep-bend') {
     const verticalAcc = Math.abs(acc.z || acc.y || 0);
     if (verticalAcc > 13.5 && now > jumpCooldown) {
       jumpCooldown = now + 600;
@@ -98,7 +93,7 @@ function analyzeMovement(acc, rot, stepId) {
     }
   }
 
-  if (rot && (stepId === 'slide-slash' || stepId === 'dragon-roar')) {
+  if (rot && (stepId === 'slide-slash' || stepId === 'dragon-roar' || stepId === 'bridge-stretch')) {
     const rotationSpeed = Math.abs(rot.alpha || 0) + Math.abs(rot.beta || 0) + Math.abs(rot.gamma || 0);
     if (rotationSpeed > 280 && now > slashCooldown) {
       slashCooldown = now + 500;
@@ -106,7 +101,7 @@ function analyzeMovement(acc, rot, stepId) {
     }
   }
 
-  if (stepId === 'bench-squat') {
+  if (stepId === 'bench-squat' || stepId === 'split-pose') {
     const forwardAcc = acc.y || acc.x || 0;
     if (forwardAcc < 3.5 && squatState === 'up' && now > squatCooldown) {
       squatState = 'down';
