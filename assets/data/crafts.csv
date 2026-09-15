@@ -1,0 +1,8 @@
+id,name,icon,desc,drewno,kamien,ryba,zboze,skora
+siekiera,Siekiera Drwala,🪓,Wymagana do wycinki starego dębu,3,0,0,0,0
+lina,Lina Wspinaczkowa,🪢,Wymagana do zdobycia lodowego szczytu,0,3,0,0,0
+mlot,Kowalski Młot,🔨,Wymagany do naprawy płotu i mostu,2,0,3,0,0
+miecz,Miecz Rycerski,🗡️,Ekwipunek rycerski do walki i obrony,0,5,0,0,2
+helm,Żelazny Hełm,🪖,Element zbroi chroniący głowę,0,4,0,0,1
+tarcza,Drewniana Tarcza,🛡️,Przedmiot obronny do misji specjalnych,4,0,0,0,2
+zbroja,Pełna Zbroja,🛡️✨,Pełny pancerz potrzebny w trudnych lokacjach,3,6,0,0,4

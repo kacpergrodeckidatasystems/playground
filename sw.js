@@ -10,7 +10,7 @@ const ASSETS = [
   "/assets/js/state.js",
   "/assets/js/engine/camera.js",
   "/assets/js/engine/poseDetector.js",
-  "/assets/js/data/scenarios.js",
+  "/assets/js/data/scenarios/scenarios/scenarios.js",
   "/assets/js/utils/audio.js",
   "/assets/js/utils/storage.js",
   // Images and icons

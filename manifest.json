@@ -1,6 +1,6 @@
 {
-  "name": "Kangoo – Playground Missions",
-  "short_name": "Kangoo",
+  "name": "Playground Missions",
+  "short_name": "Playground",
   "description": "Outdoor playground physical activity missions for kids. Jump and earn badges!",
   "start_url": ".",
   "display": "standalone",

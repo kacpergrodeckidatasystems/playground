@@ -1,0 +1,3 @@
+login,password,name,tier,title,resources,inventory,unlocked_quests
+szymek,1234,Szymek,1,Młody Pasterz,"drewno:2,skora:1,smocze_luski:0","drewniany_kij:1,lniana_tunika:1,skorzana_kamizelka:0","1,2"
+dominik,abcd,Dominik,1,Młody Pasterz,"drewno:0,skora:0,smocze_luski:0","drewniany_kij:1,lniana_tunika:1,skorzana_kamizelka:0","1,2"

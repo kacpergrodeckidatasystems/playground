@@ -1,168 +1,119 @@
-/* Main variables, layout, responsive rules for Kangoo */
 :root {
-  --color-primary: #42a5f5;
-  --color-accent: #ffd600;
-  --color-bg: #ffffff;
-  --color-text: #121212;
-  --color-success: #00c853;
-  --color-fail: #d32f2f;
-
-  --button-size: 5rem;
-  --border-radius: 1.5rem;
-  --font-big: 2.2rem;
-  --font-med: 1.2rem;
-  --font-small: 0.9rem;
+  --color-primary: #1976d2;
+  --color-accent: #ff9800;
+  --color-success: #4caf50;
+  --color-background: #fdfbf7;
+  --color-text: #2c3e50;
+  --border-radius: 16px;
 }
 
-html, body {
-  height: 100%;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  -webkit-tap-highlight-color: transparent;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  max-width: 450px;
-  margin: 0 auto;
-  min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
   display: flex;
-  flex-direction: column;
-  background: var(--color-bg);
-}
-
-#app {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 80vh;
   justify-content: center;
-  align-items: stretch;
-}
-
-/* ...existing code... */
-.landing-screen, .dashboard {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 80vh;
+  min-height: 100vh;
+  padding: 1rem;
 }
 
-.landing-illustration img {
-  width: 180px;
-  max-width: 80vw;
-  margin: 2.5rem auto 1.5rem;
-  display: block;
+/* Główny kontener – idealny na telefon i elegancki na komputerze */
+#app {
+  width: 100%;
+  max-width: 850px;
+  min-height: 90vh;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #eaeaea;
 }
 
+.big-button {
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.1s ease, background-color 0.2s ease;
+  width: 100%;
+}
+
+.big-button:active {
+  transform: scale(0.98);
+}
+
+/* Siatka misji dostosowana do PC i Mobile */
 .scenarios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 1.2rem;
-  margin: 0 0 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
   width: 100%;
 }
 
 .scenario-card {
-  background: var(--color-accent);
+  background: white;
+  border: 2px solid #e0e0e0;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 10px rgba(255, 214, 0, 0.12);
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-med);
-  font-weight: 600;
-  color: var(--color-primary);
-  transition: transform 0.12s;
-  cursor: pointer;
-  padding: 1rem 0.4rem;
-  touch-action: manipulation;
-}
-.scenario-card:active, .scenario-card:focus {
-  transform: scale(1.06) rotate(-2deg);
-  background: #fffde7;
-  outline: 2px solid var(--color-primary);
-}
-.scenario-icon {
-  font-size: 2.4rem;
-  margin-bottom: 0.6rem;
-}
-.scenario-title {
-  text-align: center;
-  font-size: 1rem;
-}
-
-.status-bar {
-  width: 100%;
-  margin-top: auto;
+  padding: 1.2rem;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 1rem;
-  background: rgba(66, 165, 245, 0.07);
-  padding: 1.2rem 0.6rem 0.8rem;
-  border-radius: var(--border-radius);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  transition: all 0.2s ease;
 }
 
-.character-drawing img {
-  width: 62px;
-  height: auto;
-  border-radius: 48%;
-  border: 2px solid var(--color-primary);
-  background: #fff;
+.scenario-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
-.welcome-msg {
+.scenario-icon {
+  font-size: 2.5rem;
+}
+
+.scenario-title {
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: bold;
   color: var(--color-text);
 }
 
-.fade-in {
-  opacity: 0;
-  animation: fade-in 0.5s forwards;
-}
-@keyframes fade-in {
-  to { opacity: 1; }
-}
-
-/* ...existing responsive rules... */
-
-@media (max-width: 600px) {
-  #app {
-    min-height: 100vh;
-    padding: 0.5rem;
-  }
-  :root {
-    --button-size: 3.5rem;
-    --font-big: 1.3rem;
-  }
-}
+.status-bar {
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 80vh;
+  justify-content: space-between;
 }
 
-.landing-illustration img {
-  width: 180px;
-  max-width: 80vw;
-  margin: 2.5rem auto 1.5rem;
-  display: block;
+.badge {
+  background: var(--color-primary);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
 }
 
-.scenarios-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 1.2rem;
-  margin: 0 0 2rem 0;
-  width: 100%;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
+.fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
